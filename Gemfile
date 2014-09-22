@@ -40,3 +40,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 
 # Pony.mail(:to => 'you@example.com', :from => 'me@example.com', :subject => 'hi', :body => 'Hello there.')
+
+gem 'dotenv-rails', '~> 0.11.1'
