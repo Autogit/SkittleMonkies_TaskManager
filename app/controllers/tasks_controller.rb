@@ -9,19 +9,6 @@ class TasksController < ApplicationController
       @tasks = current_user.tasks
       @categories = current_user.categories
     end
-    # @list = {}
-    # @categories.each do |x|
-    #   @list[x.id] = []
-    # end
-    # @tasks.each do |task|
-    #   if task.category_id.nil?
-    #     binding.pry
-    #     @list["Uncategorized"] << task
-    #   else
-    #     binding.pry
-    #     @list[task.category_id] << task
-    #   end
-    # end
   end
 
   def new
@@ -32,14 +19,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(params[:task])
+    @user = User.find_by_id(session[:user_id])
     @task.project_id = (params[:project_id]).to_i
     @task.category_id = (params[:category_id]).to_i
     @task.user_id = current_user.id
-    @user = @task.email
     
     if @task.save
       @task.create_activity :create, owner: current_user
-      @task.send_email(@user)
+      TaskMailer.assign_task(@user, @task).deliver if @task.email != ""
       redirect_to tasks_path
     else
       render "new"
