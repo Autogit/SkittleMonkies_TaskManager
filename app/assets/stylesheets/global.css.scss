@@ -1,4 +1,4 @@
-
+$b_color : #ffffff;
 
 html {
   z-index: -10;
@@ -99,7 +99,7 @@ margin: 0 0 0 30px;
 #subhead {
   font-family: 'Syncopate', sans-serif;
   width: 75%;
-  background-color: #ffffff;
+  background-color: $b_color;
   float: right;
   border-radius: 20px 0px 0px 20px;
   height: 75px;
@@ -112,7 +112,7 @@ margin: 0 0 0 30px;
   width: 72%;
   min-height: 300px;
   position:relative;
-  background-color: #ffffff;
+  background-color: $b_color;
   float: right;
   border-radius: 20px 0px 0px 20px;
   margin-top: 10px;
@@ -208,7 +208,7 @@ margin: 0 0 0 30px;
   width: 95%;
   font-family: 'Syncopate', sans-serif;
   list-style-type: none;
-  background: #ffffff;
+  background: $b_color;
   padding-bottom: 15px;
   margin: 20px 0 0 0;
   padding-top: 20px;
